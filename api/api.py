@@ -1,7 +1,7 @@
 import flask
 from flask import request, jsonify
 from bandwidths import BANDWIDTHS
-import time;
+import time
 ts = time.time()
 
 app = flask.Flask(__name__)
@@ -15,10 +15,10 @@ def home():
 # A route to return all of the available entries in our catalog.
 @app.route('/api/v1/resources/bandwidths/all', methods=['GET'])
 def api_all():
-    return jsonify(BANDWIDTHS)
+    return { "bandwidths": BANDWIDTHS }
 
-@app.route('/api/v1/resources/bandwidths', methods=['GET'])
-def api_id():
+@app.route('/api/v1/resources/bandwidths/agg', methods=['GET'])
+def bandwidth_agg():
     # Check if all required parameters are provided
     # If missing, display an error in the browser.
     if 'device_id' in request.args:
@@ -56,12 +56,13 @@ def api_id():
             if n['device_id'] == device_id and n['timestamp'] >= running_start_time and n['timestamp'] <= running_end_time:
                 sum_bytes_fs += n['bytes_fs']
                 sum_bytes_ts += n['bytes_ts']
-        results.append({ "timestamp": running_end_time, "sum_bytes_ts": sum_bytes_ts, "sum_bytes_fs": sum_bytes_fs })
+        results.append({ "timestamp": running_end_time, "data": [{ "bytes_fs": sum_bytes_fs, "bytes_ts": sum_bytes_ts}] })
         running_start_time = running_end_time
         running_end_time += window_time
 
     # Use the jsonify function from Flask to convert our list of
     # Python dictionaries to the JSON format.
-    return { "data": results }
+    return { "bandwidths": results }
 
-app.run()
+if __name__ == "__main__":
+    app.run()

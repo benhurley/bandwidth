@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { Bandwidths } from "./components/bandwidths";
 
 function App() {
+  const [bandwidths, setBandwidths] = useState([]);
+
+  useEffect(() => {
+    const request = window.location.pathname + window.location.search
+    if (!request.includes("/api/v1/resources/bandwidths/agg")) {  
+      console.log("Error: request needs to follow the path /api/v1/resources/bandwidths/agg?{parameters}")
+    } else if (!request.includes("device_id")) {
+      console.log("Error: device_id is a required parameter")
+    } else {
+      fetch(request).then(response =>
+        response.json().then(data => {
+          setBandwidths(data.bandwidths);
+        }).catch(error =>
+          console.error('Error:', error),
+        )
+      )
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  <div className="app">
+    <Bandwidths bandwidths={bandwidths} />
+  </div>      
+  )
+};
 
 export default App;
