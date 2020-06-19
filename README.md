@@ -1,64 +1,75 @@
 # Bandwidth Project
 
-This project is built with Flask and React. 
+This project is built with Flask and React.
 
 ## Requirements
+
 1. Node.js (10.13.0^)
 2. Yarn
 3. Python3
 
 ## Quick Start
-1. Install Dependencies for the Front End
-```
+
+Install front end dependencies
+
+```bash
 yarn install
 ```
-2. Start the Front End
-```
+
+Start the front end
+
+```bash
 yarn start
 ```
-3. Setup Dependencies for the Back End
-```
+
+Setup the back end
+
+```bash
 cd api/
 ```
-Start a virtual environment
-```
+
+```bash
 python3 -m venv venv
 ```
-```
+
+```bash
 . venv/bin/activate
 ```
-Install flask
-```
+
+```bash
 pip install flask
 ```
-Install python-dotenv so we can use .flaskenv vars
-```
+
+```bash
 pip install python-dotenv
 ```
-```
+
+```bash
 cd ..
 ```
-4. Start the Back End
-```
+
+Start the back end
+
+```bash
 yarn start-api
 ```
 
-You should see a blank graph now. 
+Requests can be made through the address bar in the following format:
 
-5. Requests can be made through the address bar in the following format:
-```
+```bash
 /api/v1/resources/bandwidths/agg?{parameters}
 ```
-Parameters:
-1. <b>device_id</b> (required)
+
+Parameters
+
+1. device_id (required)
 2. end_time (defaults to now)
 3. num_windows (defaults to 10)
 4. window_time (defaults to 60)
- 
-Example:
-```
-http://localhost:3000/api/v1/resources/bandwidths/agg?device_id=cf4844bc-a107-4e0a-84e1-fa04d76d388c&end_time=1524835983
-```
+
+Example
+
+[http://localhost:3000/api/v1/resources/bandwidths/agg?device_id=cf4844bc-a107-4e0a-84e1-fa04d76d388c&end_time=1524835983][1]
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -128,3 +139,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+[1]: http://localhost:3000/api/v1/resources/bandwidths/agg?device_id=cf4844bc-a107-4e0a-84e1-fa04d76d388c&end_time=1524835983
