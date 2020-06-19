@@ -8,18 +8,45 @@ This project is built with Flask and React.
 3. Python3
 
 ## Quick Start
-1. Start the Front End
+1. Install Dependencies for the Front End
+```
+yarn install
+```
+(make sure your version of node is 10.13.0^)
+2. Start the Front End
 ```
 yarn start
 ```
-2. Start the Back End
+3. Setup Dependencies for the Back End
+```
+cd api/
+```
+Start a virtual environment
+```
+python3 -m venv venv
+```
+```
+. venv/bin/activate
+```
+Install flask
+```
+pip install flask
+```
+Install python-dotenv so we can use .flaskenv vars
+```
+pip install python-dotenv
+```
+```
+cd ..
+```
+4. Start the Back End
 ```
 yarn start-api
 ```
 
 You should see a blank graph now. 
 
-3. Requests can be made through the address bar in the following format:
+5. Requests can be made through the address bar in the following format:
 ```
 /api/v1/resources/bandwidths/agg?{parameters}
 ```
