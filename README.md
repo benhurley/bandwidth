@@ -3,7 +3,7 @@
 This project is built with Flask and React. 
 
 ## Requirements
-1. Node.js
+1. Node.js (10.13.0^)
 2. Yarn
 3. Python3
 
@@ -12,7 +12,6 @@ This project is built with Flask and React.
 ```
 yarn install
 ```
-(make sure your version of node is 10.13.0^)
 2. Start the Front End
 ```
 yarn start
