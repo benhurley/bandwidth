@@ -21,7 +21,7 @@ You should see a blank graph now.
 
 3. Requests can be made through the address bar in the following format:
 ```
-/api//api/v1/resources/bandwidths/agg?{parameters}
+/api/v1/resources/bandwidths/agg?{parameters}
 ```
 Parameters:
 1. <b>device_id</b> (required)
