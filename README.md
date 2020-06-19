@@ -1,3 +1,39 @@
+# Bandwidth Project
+
+This project is built with Flask and React. 
+
+## Requirements
+1. Node.js
+2. Yarn
+3. Python3
+
+## Quick Start
+1. Start the Front End
+```
+yarn start
+```
+2. Start the Back End
+```
+yarn start-api
+```
+
+You should see a blank graph now. 
+
+3. Requests can be made through the address bar in the following format:
+```
+/api//api/v1/resources/bandwidths/agg?{parameters}
+```
+Parameters:
+1. <b>device_id</b> (required)
+2. end_time (defaults to now)
+3. num_windows (defaults to 10)
+4. window_time (defaults to 60)
+ 
+Example:
+```
+http://localhost:3000/api/v1/resources/bandwidths/agg?device_id=cf4844bc-a107-4e0a-84e1-fa04d76d388c&end_time=1524835983
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

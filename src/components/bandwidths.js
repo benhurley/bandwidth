@@ -7,6 +7,7 @@ ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 export const Bandwidths = ({ bandwidths }) => {
 
+// map bandwidth data into required format for fusioncharts
 const categories = [{"category": bandwidths.map(b => {return { "label": b.timestamp.toString()  }}) }]
 const fsData = bandwidths.map(b => { return { "value": b.data[0].bytes_fs.toString()}})
 const tsData = bandwidths.map(b => { return { "value": b.data[0].bytes_ts.toString()}})
@@ -34,6 +35,6 @@ const chartConfigs = {
       "dataset": dataset,
     }
   }
-
+    // render the chart
     return( <ReactFC {...chartConfigs} /> )
 };
