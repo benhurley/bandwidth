@@ -1,6 +1,6 @@
 # Bandwidth Project
 
-This project is built with Flask and React.
+This project is built with Flask and React. Desktop support only.
 
 ## Requirements
 
@@ -10,16 +10,10 @@ This project is built with Flask and React.
 
 ## Quick Start
 
-Install front end dependencies
+Install dependencies
 
 ```bash
 yarn install
-```
-
-Start the front end
-
-```bash
-yarn start
 ```
 
 Setup the back end
@@ -44,32 +38,41 @@ pip install flask
 pip install python-dotenv
 ```
 
-```bash
-cd ..
-```
-
-Start the back end
+Start the backend
 
 ```bash
-yarn start-api
+flask run && cd ..
 ```
 
-Requests can be made through the address bar in the following format:
-
+Start the frontend
 ```bash
-/api/v1/resources/bandwidths/agg?{parameters}
+yarn start
 ```
 
-Parameters
+## Using the Bandwidth dashboard
 
-1. device_id (required)
-2. end_time (defaults to now)
-3. num_windows (defaults to 10)
-4. window_time (defaults to 60)
+Upon boot up, you will notice a list of device ids and a graph of bandwidth data (aggregated in groups showing bytes-from-server and bytes-to-server for each device). The graph will display the first device id in the list to start. Clicking on a device id will update the chart with corresponding bandwidth data. You can add query parameters to limit the number of device ids initially returned on the first load.
 
-Example
+Supported filters paramters
 
-[http://localhost:3000/api/v1/resources/bandwidths/agg?device_id=cf4844bc-a107-4e0a-84e1-fa04d76d388c&end_time=1524835983][1]
+1. class (ex. "Medical")
+2. device_id (ex. "00e12926-fb84-4f62-a81b-1077dafc6ada")
+3. type (ex. "Anesthesia Machine")
+4. location (ex. "Main Campus")
+5. model (ex. "GE Datex Ohmeda Avance S5 Anesthesia Machine")
+6. organization (ex. "NYU")
+
+This implementation uses the device id to query device bandwidth data using some default values:
+
+1. end_time (defaults to 1524835983)
+2. num_windows (defaults to 10)
+3. window_time (defaults to 60)
+
+Examples:
+
+[http://localhost:3000/?organization=NYU][1]<br>
+[http://localhost:3000/?type=Infusion%20Pump][2]<br>
+[http://localhost:3000/?type=Anesthesia%20Machine][3]<br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -140,4 +143,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-[1]: http://localhost:3000/api/v1/resources/bandwidths/agg?device_id=cf4844bc-a107-4e0a-84e1-fa04d76d388c&end_time=1524835983
+[1]: http://localhost:3000/?organization=NYU&device_id=7f47ccf9-582d-42b8-88bd-052a1d236839
+[2]: http://localhost:3000/?type=Infusion%20Pump
+[3]: http://localhost:3000/?type=Anesthesia%20Machine
