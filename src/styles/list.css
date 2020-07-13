@@ -1,0 +1,29 @@
+.title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    color: white;
+}
+
+.list {
+    margin-left: 50px;
+    margin-right: 40px;
+}
+
+.listItem {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+    text-align: left;
+}
+
+.scoll {
+    height: 450px; 
+    width: 110%;
+    overflow: hidden; 
+    overflow-y: scroll;
+}

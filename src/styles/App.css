@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 700px;
+  margin-top: 40px;
 }
 
 .App-logo {
@@ -36,3 +39,13 @@
     transform: rotate(360deg);
   }
 }
+
+html {
+  background-color: #282c34;
+}
+
+.row {
+  display:flex; 
+  flex-direction:row;
+}
+
