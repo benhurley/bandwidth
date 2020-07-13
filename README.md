@@ -143,6 +143,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-[1]: http://localhost:3000/?organization=NYU&device_id=7f47ccf9-582d-42b8-88bd-052a1d236839
+[1]: http://localhost:3000/?organization=NYU
 [2]: http://localhost:3000/?type=Infusion%20Pump
 [3]: http://localhost:3000/?type=Anesthesia%20Machine
