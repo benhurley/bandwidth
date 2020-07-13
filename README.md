@@ -2,6 +2,8 @@
 
 This project is built with Flask and React. Desktop support only.
 
+![Screenshot](./public/screenshot.png)
+
 ## Requirements
 
 1. Node.js (10.13.0^)
